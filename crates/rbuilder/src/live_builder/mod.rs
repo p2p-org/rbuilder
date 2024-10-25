@@ -38,12 +38,15 @@ use tokio_util::sync::CancellationToken;
 use tracing::{debug, info, warn};
 
 /// Time the proposer have to propose a block from the beginning of the slot (https://www.paradigm.xyz/2023/04/mev-boost-ethereum-consensus Slot anatomy)
-const SLOT_PROPOSAL_DURATION: std::time::Duration = Duration::from_secs(4);
+/// TODO: Move this to config item
+const SLOT_PROPOSAL_DURATION: std::time::Duration = Duration::from_secs(0);
 /// Delta from slot time to get_header dead line. If we can't get the block header before slot_time + BLOCK_HEADER_DEAD_LINE_DELTA we cancel the slot.
 /// Careful: It's signed and usually negative since we need de header BEFORE the slot time.
-const BLOCK_HEADER_DEAD_LINE_DELTA: time::Duration = time::Duration::milliseconds(-2500);
+/// TODO: Move this to config item
+const BLOCK_HEADER_DEAD_LINE_DELTA: time::Duration = time::Duration::milliseconds(-25);
 /// Polling period while trying to get a block header
-const GET_BLOCK_HEADER_PERIOD: time::Duration = time::Duration::milliseconds(250);
+/// TODO: Move this to config item
+const GET_BLOCK_HEADER_PERIOD: time::Duration = time::Duration::milliseconds(25);
 
 /// Trait used to trigger a new block building process in the slot.
 pub trait SlotSource {

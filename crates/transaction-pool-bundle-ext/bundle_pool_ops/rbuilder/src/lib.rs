@@ -40,11 +40,13 @@ use transaction_pool_bundle_ext::BundlePoolOperations;
 #[allow(unused)]
 #[derive(Debug)]
 pub struct BundlePoolOps {
+    // Channel to stream new payload attribute events to rbuilder
     payload_attributes_tx: mpsc::UnboundedSender<(PayloadAttributesEvent, Option<u64>)>,
 }
 
 #[derive(Debug)]
 struct OurSlotSource {
+    /// Channel [`OurSlotSource`] uses to receive payload attributes from reth
     payload_attributes_rx: mpsc::UnboundedReceiver<(PayloadAttributesEvent, Option<u64>)>,
 }
 
@@ -98,7 +100,7 @@ impl BundlePoolOps {
 
         // Spawn the task in a separate thread of execution, allowing it to run without blocking.
         let _handle = task::spawn(async move {
-            // Wait for 5 seconds without blocking
+            // Wait for 5 seconds for reth to init
             sleep(Duration::from_secs(5)).await;
 
             let builder_strategy = BuilderConfig {

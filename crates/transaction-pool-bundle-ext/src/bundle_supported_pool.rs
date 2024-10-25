@@ -12,10 +12,7 @@ use reth_transaction_pool::{
     TransactionOrigin, TransactionPool, TransactionPoolExt as TransactionPoolBlockInfoExt,
     TransactionValidator, ValidPoolTransaction,
 };
-use std::{
-    collections::HashSet,
-    sync::Arc,
-};
+use std::{collections::HashSet, sync::Arc};
 use tokio::sync::mpsc::Receiver;
 
 use crate::{traits::BundlePoolOperations, TransactionPoolBundleExt};

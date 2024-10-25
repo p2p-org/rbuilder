@@ -4,8 +4,7 @@ use crate::primitives::{
     Bundle, BundleReplacementKey, MempoolTx, Order,
 };
 use alloy_primitives::Address;
-use jsonrpsee::types::ErrorObject;
-use jsonrpsee::{server::Server, RpcModule};
+use jsonrpsee::{server::Server, types::ErrorObject, RpcModule};
 use reth_primitives::Bytes;
 use serde::Deserialize;
 use std::{

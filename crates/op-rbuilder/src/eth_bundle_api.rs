@@ -27,6 +27,7 @@ where
         bundle: EthSendBundle,
     ) -> jsonrpsee::core::RpcResult<EthBundleHash> {
         // TODO: Handle error
+        panic!("bundle sent");
         self.pool.add_bundle(bundle).unwrap();
 
         // TODO: Hash and return
