@@ -4,6 +4,7 @@ members = [
     "crates/op-rbuilder",
     "crates/op-rbuilder/payload_builder",
     "crates/op-rbuilder/node",
+    "crates/reth-rbuilder",
     "crates/rbuilder/src/test_utils",
     "crates/rbuilder/src/telemetry/metrics_macros",
     "crates/transaction-pool-bundle-ext",
@@ -30,20 +31,22 @@ edition = "2021"
 reth = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-chain-state = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-beacon-consensus = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
+reth-cli-util = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-db = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
-reth-db-common = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-db-api = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
+reth-db-common = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-errors = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-libmdbx = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-payload-builder = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-payload-primitives = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-node-api = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
+reth-node-builder = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
+reth-node-ethereum = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-trie = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-trie-parallel = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-transaction-pool = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-basic-payload-builder = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-node-core = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
-reth-node-builder = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-consensus = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-optimism-consensus = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-auto-seal-consensus = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
@@ -65,7 +68,6 @@ reth-rpc-api-types = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.
 reth-discv4 = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-discv5 = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-network = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
-reth-cli-util = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-node-optimism = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-eth-wire-types = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
 reth-storage-api = { git = "https://github.com/paradigmxyz/reth", tag = "v1.0.6" }
@@ -130,4 +132,6 @@ tokio-stream = "0.1.16"
 tokio-util = "0.7.12"
 url = "2.5.2"
 
+libc = { version = "0.2.161" }
+tikv-jemallocator = { version = "0.5.4" }
 
