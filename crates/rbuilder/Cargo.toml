@@ -95,7 +95,7 @@ mev-share-sse = { git = "https://github.com/paradigmxyz/mev-share-rs", rev = "9e
 jsonrpsee = { version = "0.20.3", features = ["full"] }
 ssz_rs = { git = "https://github.com/ralexstokes/ssz-rs.git", version = "0.9.0" }
 beacon-api-client = { git = "https://github.com/ralexstokes/ethereum-consensus/", rev = "cf3c404043230559660810bc0c9d6d5a8498d819" }
-ethereum-consensus = { git = "https://github.com/ralexstokes/ethereum-consensus/", rev = "cf3c404043230559660810bc0c9d6d5a8498d819" }
+ethereum-consensus = { git = "https://github.com/ralexstokes/ethereum-consensus/", rev = "5031d31e318dd861cf3373702c5d92f085d926e4" }
 ssz_rs_derive = { git = "https://github.com/ralexstokes/ssz-rs.git", version = "0.9.0" }
 tokio-util = { workspace = true }
 uuid = { version = "1.6.1", features = ["serde", "v5", "v4"] }
