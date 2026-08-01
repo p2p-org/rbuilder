@@ -101,7 +101,7 @@ jobs:
 
       # https://github.com/Mozilla-Actions/sccache-action
       - name: Setup sccache-action
-        uses: mozilla-actions/sccache-action@v0.0.5
+        uses: mozilla-actions/sccache-action@fc920bf0ec8de6ee65d409111f7ec508035751ba # v0.0.11
 
       - name: Set env vars
         run: |
