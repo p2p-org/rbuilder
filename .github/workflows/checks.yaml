@@ -26,23 +26,23 @@ jobs:
           - "redact_sensitive"
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       # https://github.com/dtolnay/rust-toolchain
       - name: Setup rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87 # stable
         with:
           toolchain: ${{ matrix.toolchain }}
 
       # https://github.com/swatinem/rust-cache
       - name: Run Swatinem/rust-cache@v2
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
         with:
           cache-on-failure: true
 
       # https://github.com/Mozilla-Actions/sccache-action
       - name: Run sccache-action
-        uses: mozilla-actions/sccache-action@v0.0.5
+        uses: mozilla-actions/sccache-action@89e9040de88b577a072e3760aaf59f585da083af # v0.0.5
 
       - name: Set sccache env vars
         run: |
@@ -50,7 +50,7 @@ jobs:
           echo "RUSTC_WRAPPER=sccache" >> $GITHUB_ENV
 
       - name: Install Foundry toolchain
-        uses: foundry-rs/foundry-toolchain@v1
+        uses: foundry-rs/foundry-toolchain@908c540300062bd5a7e473851cdb4282204cee09 # v1
         with:
           version: nightly
 
@@ -76,22 +76,22 @@ jobs:
           - "redact_sensitive"
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Download builder playground
-        uses: flashbots/flashbots-toolchain@v0.1
+        uses: flashbots/flashbots-toolchain@3d1afe85e3567f25d535ba16aca177daf90347eb # v0.1
         with:
           builder-playground: latest
 
       # https://github.com/swatinem/rust-cache
       - name: Run Swatinem/rust-cache@v2
-        uses: Swatinem/rust-cache@v2
+        uses: Swatinem/rust-cache@6323deb102c322ba6fcbdcafc7e3dddab59af2b6 # v2
         with:
           cache-on-failure: true
 
       # https://github.com/Mozilla-Actions/sccache-action
       - name: Run sccache-action
-        uses: mozilla-actions/sccache-action@v0.0.5
+        uses: mozilla-actions/sccache-action@89e9040de88b577a072e3760aaf59f585da083af # v0.0.5
 
       - name: Set sccache env vars
         run: |
@@ -118,7 +118,7 @@ jobs:
           mv integration_logs /tmp/playground-logs
 
       - name: Archive playground logs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: ${{ failure() }}
         with:
           name: playground-logs
