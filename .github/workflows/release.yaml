@@ -83,25 +83,25 @@ jobs:
 
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0 # needed for built.rs to get GIT_HEAD_REF
 
       # https://github.com/dtolnay/rust-toolchain
       - name: Setup rust toolchain
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@6bed0761d98439e5a578e2877258200ad565ba87 # stable
         with:
           target: ${{ matrix.configs.target }}
 
       # https://github.com/WarpBuilds/rust-cache
       - name: Run WarpBuilds/rust-cache
-        uses: WarpBuilds/rust-cache@v2
+        uses: WarpBuilds/rust-cache@9d0cc3090d9c87de74ea67617b246e978735b1a1 # v2
         with:
           cache-on-failure: true
 
       # https://github.com/Mozilla-Actions/sccache-action
       - name: Setup sccache-action
-        uses: mozilla-actions/sccache-action@v0.0.5
+        uses: mozilla-actions/sccache-action@89e9040de88b577a072e3760aaf59f585da083af # v0.0.5
 
       - name: Set env vars
         run: |
@@ -128,7 +128,7 @@ jobs:
 
       # https://github.com/actions/upload-artifact
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4.3.1
+        uses: actions/upload-artifact@5d5d22a31266ced268874388b861e4b58bb5c2f3 # v4.3.1
         with:
           name: ${{ env.OUTPUT_FILENAME }}
           path: artifacts/${{ env.OUTPUT_FILENAME }}
@@ -148,11 +148,11 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       # https://github.com/actions/download-artifact
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           merge-multiple: true
           path: artifacts
@@ -166,7 +166,7 @@ jobs:
 
       # https://github.com/softprops/action-gh-release
       - name: Create release draft
-        uses: softprops/action-gh-release@v2.0.5
+        uses: softprops/action-gh-release@69320dbe05506a9a39fc8ae11030b214ec2d1f87 # v2.0.5
         id: create-release-draft
         with:
           draft: true
@@ -200,17 +200,17 @@ jobs:
 
     steps:
       - name: checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: docker qemu
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@c7c53464625b32c7a7e944ae62b3e17d2b600130 # v3
 
       - name: docker buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
 
       # https://github.com/docker/metadata-action
       - name: docker metadata
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@c299e40c65443455700f0fdfc63efafe5b349051 # v5
         id: meta
         with:
           images: ghcr.io/${{ github.repository }}
@@ -225,14 +225,14 @@ jobs:
             type=raw,value=latest,enable=${{ !contains(env.VERSION, '-') }}
 
       - name: docker login
-        uses: docker/login-action@v3
+        uses: docker/login-action@c94ce9fb468520275223c153574b00df6fe4bcc9 # v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: docker build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 # v5
         with:
           cache-from: type=gha
           cache-to: type=gha,mode=max
