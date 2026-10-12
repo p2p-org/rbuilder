@@ -61,7 +61,7 @@ jobs:
           fi
 
       # https://github.com/actions/download-artifact
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
         with:
           name: benchmark-report.zip
           run-id: ${{ github.event.workflow_run.id }}
@@ -87,7 +87,7 @@ jobs:
 
       # Upload S3 (using https://github.com/shallwefootball/upload-s3-action)
       - name: Upload to S3
-        uses: shallwefootball/s3-upload-action@master
+        uses: shallwefootball/s3-upload-action@0d261a6f15b3b2e209dfebdecace4b100c04f95b # master
         id: S3
         with:
           aws_key_id: ${{secrets.AWS_KEY_ID}}
@@ -111,7 +111,7 @@ jobs:
       # https://github.com/peter-evans/find-comment
       - name: Find previous PR comment
         if: steps.prepare.outputs.PR_NUMBER != ''
-        uses: peter-evans/find-comment@v3
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e # v3
         id: fc
         with:
           issue-number: ${{ steps.prepare.outputs.PR_NUMBER }}
@@ -121,7 +121,7 @@ jobs:
       # https://github.com/peter-evans/create-or-update-comment
       - name: Create or update PR comment
         if: steps.prepare.outputs.PR_NUMBER != ''
-        uses: peter-evans/create-or-update-comment@v4
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ steps.prepare.outputs.PR_NUMBER }}
